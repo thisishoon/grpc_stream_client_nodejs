@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+
+service MediaService {
+    rpc filter (stream audio) returns (stream inferredResult) {
+    }
+}
+message audio {
+    bytes raw = 1 ;
+}
+message inferredResult {
+    repeated double noise = 1 [packed = true];
+    repeated double voice = 2 [packed = true];
+}
+
+
